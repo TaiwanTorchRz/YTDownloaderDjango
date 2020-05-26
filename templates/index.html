@@ -1,0 +1,138 @@
+<html>
+  <head>
+    {% load static %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" rel="stylesheet" />
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    	<style>
+
+.loader {
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: helvetica, arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #ce4233;
+  letter-spacing: 0.2em;
+}
+.loader::before, .loader::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: #ce4233;
+  position: absolute;
+  -webkit-animation: load .7s infinite alternate ease-in-out;
+          animation: load .7s infinite alternate ease-in-out;
+}
+.loader::before {
+  top: 0;
+}
+.loader::after {
+  bottom: 0;
+}
+
+@-webkit-keyframes load {
+  0% {
+    left: 0;
+    height: 30px;
+    width: 15px;
+  }
+  50% {
+    height: 8px;
+    width: 40px;
+  }
+  100% {
+    left: 235px;
+    height: 30px;
+    width: 15px;
+  }
+}
+
+@keyframes load {
+  0% {
+    left: 0;
+    height: 30px;
+    width: 15px;
+  }
+  50% {
+    height: 8px;
+    width: 40px;
+  }
+  100% {
+    left: 235px;
+    height: 30px;
+    width: 15px;
+  }
+}
+	</style>
+
+  </head>
+  <body>
+    <div class="s013">
+      <form action="/D/" method='POST'>
+      {% csrf_token %}
+        <fieldset>
+          <legend>GitTorch YT Downloader</legend>
+        </fieldset>
+        <div class="inner-form">
+          <div class="left">
+            <div class="input-wrap first">
+              <div class="input-field first">
+                <label>WHAT</label>
+                <input name="url" type="text" placeholder="Type your URL" />
+              </div>
+            </div>
+            <div class="input-wrap second">
+              <div class="input-field second">
+                <label>品質</label>
+                <div class="input-select">
+                  <select data-trigger="" name="choices-single-defaul">
+                    <option> 144p</option>
+                    <option> 240p</option>
+                    <option> 360p</option>
+                    <option> 480p</option>
+                    <option> 720p</option>
+                    <option>1080p</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-search" type="submit"onClick="
+            Swal.fire({
+            icon: 'info',
+            html:
+              '<div class="loader">正在處理...</div>',
+            showCloseButton: false,
+            showCancelButton: true,
+            focusConfirm: false,
+          })
+          
+          
+          
+          ">SEARCH</button>
+        </div>
+      </form>
+    </div>
+    <script src="{% static "js/extention/choices.js" %}"></script>
+    <script>
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+
+    </script>
+  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
