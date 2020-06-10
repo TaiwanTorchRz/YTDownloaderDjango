@@ -19,7 +19,7 @@ from Main.views import index,gitList,loading
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('YT/',index),
+    path('',index),
     path('D/',gitList),
     path('L/',loading)
 ]
